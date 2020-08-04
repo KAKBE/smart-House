@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SeekBar
+        android:id="@+id/печка"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="323dp"
+        android:layout_height="80dp"
+        android:max="10"
+        android:progress="3"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="47dp" />
+
+    <SeekBar
+        android:id="@+id/окно"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="323dp"
+        android:layout_height="80dp"
+        android:max="10"
+        android:progress="3"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <SeekBar
+        android:id="@+id/увлажнитель"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="323dp"
+        android:layout_height="80dp"
+        android:max="10"
+        android:progress="3"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="339dp" />
+
+    <Button
+        android:id="@+id/Время1"
+        android:layout_width="129dp"
+        android:layout_height="46dp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="127dp" />
+
+    <Button
+        android:id="@+id/окно"
+        android:layout_width="129dp"
+        android:layout_height="46dp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="274dp" />
+
+    <Button
+        android:id="@+id/увлажнитель"
+        android:layout_width="129dp"
+        android:layout_height="46dp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="419dp" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="45dp"
+        android:layout_height="21dp"
+        android:text="Печка"
+        tools:layout_editor_absoluteX="183dp"
+        tools:layout_editor_absoluteY="173dp" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Окно"
+        tools:layout_editor_absoluteX="189dp"
+        tools:layout_editor_absoluteY="320dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Увлажнитель"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="465dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

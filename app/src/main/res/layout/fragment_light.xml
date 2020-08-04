@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="323dp"
+        android:layout_height="60dp"
+        android:text="Освещение в комнате"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="323dp"
+        android:layout_height="60dp"
+        android:text="Оптимальное освещение"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="323dp"
+        android:layout_height="80dp"
+        android:max="10"
+        android:progress="3"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="148dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar4"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="323dp"
+        android:layout_height="80dp"
+        android:max="10"
+        android:progress="3"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="228dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
