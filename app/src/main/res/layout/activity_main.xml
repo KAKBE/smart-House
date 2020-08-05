@@ -4,46 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/Электропотребление"
-        android:layout_width="269dp"
-        android:layout_height="71dp"
-        android:text="Учет электропотребления"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="263dp" />
-
-    <Button
-        android:id="@+id/Климат"
-        android:layout_width="269dp"
-        android:layout_height="71dp"
-        android:text="Контроль климата"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="192dp" />
-
-    <Button
-        android:id="@+id/Доступ"
-        android:layout_width="269dp"
-        android:layout_height="71dp"
-        android:text="Контроль доступа"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="121dp" />
-
-    <Button
-        android:id="@+id/Освещение"
-        android:layout_width="269dp"
-        android:layout_height="71dp"
-        android:text="Управление освещением"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="50dp" />
-
-    <Button
-        android:id="@+id/Настройки"
-        android:layout_width="214dp"
-        android:layout_height="51dp"
-        android:text="Настройки"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="677dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".MainActivity"/>
