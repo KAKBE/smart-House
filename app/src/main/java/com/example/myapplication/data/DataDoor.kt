@@ -12,7 +12,9 @@ class DataDoorHistory(
     val history: Array<DoorHistoryItem>
 )
 
-class DoorHistoryItem {
-
-}
+class DoorHistoryItem (
+    val date: String,
+    val time: String,
+    val mecto: String
+)
 
