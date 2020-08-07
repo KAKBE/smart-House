@@ -3,9 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button3"
+    <TextView
+        android:id="@+id/button8"
+        tools:text="25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="История открытия" />
+        android:layout_marginTop="28dp"
+        android:background="@android:"
+        android:gravity="center"
+        android:text="История открытия"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textSize="20dp" />
+
 </LinearLayout>
