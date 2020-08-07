@@ -8,6 +8,11 @@ class DataDoorPhoto (
     val photo : String
 )
 
-class LightHistory(
+class DataDoorHistory(
     val history: Array<DoorHistoryItem>
 )
+
+class DoorHistoryItem {
+
+}
+
