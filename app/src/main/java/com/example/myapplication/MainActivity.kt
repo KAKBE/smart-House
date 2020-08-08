@@ -3,6 +3,7 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.myapplication.ui.EnergyDayfragment
 import com.example.myapplication.ui.Lightfragment
 
 class MainActivity : AppCompatActivity() {
@@ -10,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
-            navigateTo(Lightfragment())
+            navigateTo(EnergyDayfragment())
         }
 
 

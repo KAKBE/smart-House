@@ -23,6 +23,14 @@
         android:max="10"
         android:progress="3" />
 
+    <SeekBar
+        android:id="@+id/seekBar7"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:max="10"
+        android:progress="3" />
+
     <Switch
         android:id="@+id/switch5"
         android:layout_width="match_parent"
@@ -45,6 +53,14 @@
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginTop="28dp"
+        android:max="10"
+        android:progress="3" />
+
+    <SeekBar
+        android:id="@+id/seekBar8"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
         android:max="10"
         android:progress="3" />
 
