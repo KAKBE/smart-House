@@ -1,9 +1,6 @@
 package com.example.myapplication.web
 
-import com.example.myapplication.data.DataClimateStation
-import com.example.myapplication.data.DataDoor
-import com.example.myapplication.data.DataElectrOHistory
-import com.example.myapplication.data.DataLight
+import com.example.myapplication.data.*
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
@@ -36,33 +33,39 @@ object WebClient {
         }
     }
 
-    suspend fun getLightSleep(): DataLight {
+    suspend fun getLightSleep(): DataLightSleep {
         return withContext(Dispatchers.IO) {
-            api.getLightLux()
+            api.getLightSleep()
         }
     }
 
-    suspend fun setLightSleep(state: DataLight) {
+    suspend fun setLightSleep(state: DataLightSleep) {
         return withContext(Dispatchers.IO) {
             api.setLightSleep(state)
         }
     }
 
-    suspend fun getAccessPhoto(): DataDoor {
+    suspend fun getAccessPhoto(): DataDoorPhoto {
         return withContext(Dispatchers.IO) {
             api.getAccessPhoto()
         }
     }
 
-    suspend fun getDoorHistory(): DataDoor {
+    suspend fun getDoorHistory(): DataDoorHistory {
         return withContext(Dispatchers.IO) {
             api.getDoorHistory()
         }
     }
 
-    suspend fun getClimateClimateStation(): DataClimateStation {
+    suspend fun getClimateStation(): DataClimateStation {
         return withContext(Dispatchers.IO) {
             api.getClimateClimateStation()
+        }
+    }
+
+    suspend fun setClimateClimateStation() {
+        return withContext(Dispatchers.IO) {
+            api.setClimateClimateStation()
         }
     }
 
@@ -78,13 +81,19 @@ object WebClient {
         }
     }
 
+    suspend fun setClimateComfort() {
+        return withContext(Dispatchers.IO) {
+            api.setClimateComfort()
+        }
+    }
+
     suspend fun getClimateOnline(): DataClimateStation {
         return withContext(Dispatchers.IO) {
             api.getClimateOnline()
         }
     }
 
-    suspend fun getElectricityConsumptionHistory(): DataElectrOHistory {
+    suspend fun getElectricityConsumptionHistory(): DataElectroHistory {
         return withContext(Dispatchers.IO) {
             api.getElectricityConsumptionHistory()
         }

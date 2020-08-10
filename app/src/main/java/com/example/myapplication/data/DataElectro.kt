@@ -1,6 +1,6 @@
 package com.example.myapplication.data
 
-class DataElectrOHistory(
+class DataElectroHistory(
     val history: Array<ElectroHistoryItem>
 )
 

@@ -3,21 +3,40 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.myapplication.ui.EnergyDayfragment
-import com.example.myapplication.ui.Lightfragment
+import com.example.myapplication.ui.Mainfragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
-            navigateTo(EnergyDayfragment())
+            navigateTo(Mainfragment())
         }
 
 
 }
 
-    fun navigateTo(fragment: Fragment) {
+    fun replace(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, fragment)
+            .commit()
+    }
+
+    fun add(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    fun back() {
+        supportFragmentManager.popBackStack()
+    }
+
+
+    fun navigateTo(fragment: Mainfragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, fragment)

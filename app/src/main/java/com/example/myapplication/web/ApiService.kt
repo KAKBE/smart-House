@@ -1,9 +1,6 @@
 package com.example.myapplication.web
 
-import com.example.myapplication.data.DataDoor
-import com.example.myapplication.data.DataLight
-import com.example.myapplication.data.DataClimateStation
-import com.example.myapplication.data.DataElectrOHistory
+import com.example.myapplication.data.*
 import retrofit2.http.GET
 import retrofit2.http.POST
 
@@ -16,19 +13,22 @@ interface ApiService {
     suspend fun setLightLux(state: DataLight)
 
     @GET("get/Light/Sleep")
-    suspend fun getLightSleep(): DataLight
+    suspend fun getLightSleep(): DataLightSleep
 
     @POST("set/Light/Sleep")
-    suspend fun setLightSleep(state: DataLight)
+    suspend fun setLightSleep(state: DataLightSleep)
 
     @GET("get/Access/Photo")
-    suspend fun getAccessPhoto(): DataDoor
+    suspend fun getAccessPhoto(): DataDoorPhoto
 
     @GET("get/Door/History")
-    suspend fun getDoorHistory(): DataDoor
+    suspend fun getDoorHistory(): DataDoorHistory
 
     @GET("get/Climate/ClimateStation")
     suspend fun getClimateClimateStation(): DataClimateStation
+
+    @POST("set/Climate/ClimateStation")
+    suspend fun setClimateClimateStation(state: DataClimateStation)
 
     @GET("get/Climate/History")
     suspend fun getClimateHistory(): DataClimateStation
@@ -36,11 +36,14 @@ interface ApiService {
     @GET("get/Climate/Comfort")
     suspend fun getClimateComfort(): DataClimateStation
 
+    @POST("set/Climate/Comfort")
+    suspend fun setClimateComfort(state: DataClimateStation)
+
     @GET("get/Climate/Online")
     suspend fun getClimateOnline(): DataClimateStation
 
     @GET("get/ElectricityConsumption/history")
-    suspend fun getElectricityConsumptionHistory(): DataElectrOHistory
+    suspend fun getElectricityConsumptionHistory(): DataElectroHistory
 
 
 
