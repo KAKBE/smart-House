@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-
     fun replace(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
