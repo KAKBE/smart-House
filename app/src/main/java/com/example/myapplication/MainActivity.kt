@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, fragment)
             .commit()
     }
-
     fun add(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()

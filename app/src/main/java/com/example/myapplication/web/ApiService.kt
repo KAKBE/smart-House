@@ -1,6 +1,7 @@
 package com.example.myapplication.web
 
 import com.example.myapplication.data.*
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
@@ -10,7 +11,7 @@ interface ApiService {
     suspend fun getLightLux(): DataLight
 
     @POST("set/Light/Lux")
-    suspend fun setLightLux(state: DataLight)
+    suspend fun setLightLux(@Body state: DataLight)
 
     @GET("get/Light/Sleep")
     suspend fun getLightSleep(): DataLightSleep
@@ -18,7 +19,7 @@ interface ApiService {
     @POST("set/Light/Sleep")
     suspend fun setLightSleep(state: DataLightSleep)
 
-    @GET("get/Access/Photo")
+    @GET("Access/Photo/")
     suspend fun getAccessPhoto(): DataDoorPhoto
 
     @GET("get/Door/History")
