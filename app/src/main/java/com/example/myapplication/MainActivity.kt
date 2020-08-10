@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun navigateTo(fragment: Mainfragment) {
+    fun navigateTo(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, fragment)
