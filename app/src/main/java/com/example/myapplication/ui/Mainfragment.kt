@@ -19,7 +19,7 @@ class Mainfragment: Fragment() {
         val btn = v.findViewById<Button>(R.id.button9)
         btn.setOnClickListener{
             activity!!.supportFragmentManager.beginTransaction()
-                .replace(R.id.container,Lightfragment())
+                .add(R.id.container,Lightfragment())
                 .commit()
         }
         return v
