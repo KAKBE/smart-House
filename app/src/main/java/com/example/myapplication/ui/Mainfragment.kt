@@ -10,6 +10,7 @@ import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
+import com.example.myapplication.data.DataLight
 import com.example.myapplication.web.WebClient
 import kotlinx.coroutines.launch
 
@@ -18,9 +19,8 @@ class Mainfragment: Fragment() {
         val v = layoutInflater.inflate(R.layout.fragment_main, container, false)
         val btn = v.findViewById<Button>(R.id.button9)
         btn.setOnClickListener{
-            activity!!.supportFragmentManager.beginTransaction()
-                .add(R.id.container,Lightfragment())
-                .commit()
+            getLight()
+            setLight()
         }
         return v
     }
@@ -30,5 +30,10 @@ fun getLight(){
         Log.d("Mainfragment","${light.levelMax}"+" ${light.levelMin}")
     }
 }
+    fun setLight(){
+        lifecycleScope.launch{
+            WebClient.setLightLux(DataLight(true,30,80))
+        }
+    }
 }
 
