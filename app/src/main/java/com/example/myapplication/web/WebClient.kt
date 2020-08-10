@@ -63,9 +63,9 @@ object WebClient {
         }
     }
 
-    suspend fun setClimateClimateStation() {
+    suspend fun setClimateClimateStation(data:DataClimateStation) {
         return withContext(Dispatchers.IO) {
-            api.setClimateClimateStation()
+            api.setClimateClimateStation(data)
         }
     }
 
@@ -81,9 +81,9 @@ object WebClient {
         }
     }
 
-    suspend fun setClimateComfort() {
+    suspend fun setClimateComfort(data:DataClimateStation) {
         return withContext(Dispatchers.IO) {
-            api.setClimateComfort()
+            api.setClimateComfort(data)
         }
     }
 
