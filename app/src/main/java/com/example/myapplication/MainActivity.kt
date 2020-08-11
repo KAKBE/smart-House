@@ -15,14 +15,12 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-
     fun replace(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, fragment)
             .commit()
     }
-
     fun add(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()

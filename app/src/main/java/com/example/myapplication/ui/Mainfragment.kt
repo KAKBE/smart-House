@@ -20,14 +20,15 @@ class Mainfragment: Fragment() {
         val btn = v.findViewById<Button>(R.id.button9)
         btn.setOnClickListener{
             getLight()
-            setLight()
+            accessPhoto()
+            //setLight()
         }
         return v
     }
 fun getLight(){
     lifecycleScope.launch{
         val light = WebClient.getLightLux()
-        Log.d("Mainfragment","${light.levelMax}"+" ${light.levelMin}")
+        Log.d("Mainfragment","${light.state} ${light.level_max}"+" ${light.level_min}")
     }
 }
     fun setLight(){
@@ -35,5 +36,12 @@ fun getLight(){
             WebClient.setLightLux(DataLight(true,30,80))
         }
     }
+    fun accessPhoto(){
+        lifecycleScope.launch {
+            val photo = WebClient.getAccessPhoto()
+            Log.d("Mainfragment", "${photo.photo}")
+        }
+    }
+
 }
 
