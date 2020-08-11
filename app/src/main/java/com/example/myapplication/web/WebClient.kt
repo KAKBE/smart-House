@@ -93,13 +93,13 @@ object WebClient {
         }
     }
 
-    suspend fun setClimateComfort(data:DataClimateStation) {
+    suspend fun setClimateComfort(data:DataClimateComfort) {
         return withContext(Dispatchers.IO) {
             api.setClimateComfort(data)
         }
     }
 
-    suspend fun getClimateOnline(): DataClimateStation {
+    suspend fun getClimateOnline(): DataClimateOnline {
         return withContext(Dispatchers.IO) {
             api.getClimateOnline()
         }

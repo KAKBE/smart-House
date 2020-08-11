@@ -41,10 +41,10 @@ interface ApiService {
     suspend fun getClimateComfort(): DataClimateStation
 
     @POST("set/Climate/Comfort")
-    suspend fun setClimateComfort(state: DataClimateStation)
+    suspend fun setClimateComfort(state: DataClimateComfort)
 
     @GET("get/Climate/Online")
-    suspend fun getClimateOnline(): DataClimateStation
+    suspend fun getClimateOnline(): DataClimateOnline
 
     @GET("get/ElectricityConsumption/history")
     suspend fun getElectricityConsumptionHistory(): DataElectroHistory
