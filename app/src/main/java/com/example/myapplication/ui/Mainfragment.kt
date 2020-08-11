@@ -47,6 +47,7 @@ class Mainfragment: Fragment() {
     fun getLight(){
         lifecycleScope.launch{
             val light = WebClient.getLightLux()
+            Toast.makeText(this@Mainfragment.context, "${light.state} ${light.level_max}"+" ${light.level_min}", Toast.LENGTH_SHORT).show()
             Log.d("Mainfragment","${light.state} ${light.level_max}"+" ${light.level_min}")
         }
     }
