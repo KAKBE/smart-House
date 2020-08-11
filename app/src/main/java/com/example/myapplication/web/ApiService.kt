@@ -19,7 +19,7 @@ interface ApiService {
     @POST("set/Light/Sleep")
     suspend fun setLightSleep(state: DataLightSleep)
 
-    @GET("Access/Photo/")
+    @GET("get/Access/Photo/")
     suspend fun getAccessPhoto(): DataDoorPhoto
 
     @GET("get/Door/History")
