@@ -4,8 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
+import com.example.myapplication.web.WebClient
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class Accessfragment:Fragment() {
     override fun onCreateView(
@@ -14,5 +20,24 @@ class Accessfragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_access, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val btn = view.findViewById<Button>(R.id.button)
+        btn.setOnClickListener{
+            doorOpen()
+        }
+    }
+    fun doorOpen(){
+        lifecycleScope.launch {
+            try {
+                WebClient.setDoorOpen()
+                Toast.makeText(this@Accessfragment.context, "Открытие двери", Toast.LENGTH_SHORT)
+                    .show()
+            }catch(ex: HttpException){
+                Toast.makeText(this@Accessfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

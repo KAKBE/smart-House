@@ -14,41 +14,53 @@ import com.example.myapplication.R
 import com.example.myapplication.data.DataLight
 import com.example.myapplication.web.WebClient
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class Mainfragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = layoutInflater.inflate(R.layout.fragment_main, container, false)
         val btn = v.findViewById<Button>(R.id.button9)
+        val btn1 = v.findViewById<Button>(R.id.button12)
+        getLight()
+        accessPhoto()
+
         btn.setOnClickListener{
-            getLight()
-            accessPhoto()
-            //setLight()
+            naivgateToFragment(Lightfragment())
+        }
+        btn1.setOnClickListener{
+
         }
         return v
     }
-fun getLight(){
-    lifecycleScope.launch{
-        val light = WebClient.getLightLux()
-        Log.d("Mainfragment","${light.state} ${light.level_max}"+" ${light.level_min}")
+
+    fun naivgateToFragment(fragment: Fragment){
+        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)?.addToBackStack(null)?.commit()
     }
-}
-    fun setLight(){
+
+    fun getLight(){
         lifecycleScope.launch{
-            WebClient.setLightLux(DataLight(true,30,80))
+            val light = WebClient.getLightLux()
+            Log.d("Mainfragment","${light.state} ${light.level_max}"+" ${light.level_min}")
         }
     }
+    fun setLight(){
+        lifecycleScope.launch{
+            try {
+                WebClient.setLightLux(DataLight(true, 30, 80))
+            }catch(ex: HttpException){
+                Toast.makeText(this@Mainfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
     fun accessPhoto(){
         lifecycleScope.launch {
             val photo = WebClient.getAccessPhoto()
             Log.d("Mainfragment", "${photo.photo}")
         }
     }
-    fun dooropen(){
-        lifecycleScope.launch {
-            WebClient.setDoorOpen( )
-            Toast.makeText(this@Mainfragment.context, "Открытие двери", Toast.LENGTH_SHORT).show()
 
-        }
-    }
 }
+
 
