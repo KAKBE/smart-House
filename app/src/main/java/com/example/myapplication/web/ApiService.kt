@@ -13,6 +13,9 @@ interface ApiService {
     @POST("set/Light/Lux")
     suspend fun setLightLux(@Body state: DataLight)
 
+    @POST("set/door/open")
+    suspend fun setDoorOpen( )
+
     @GET("get/Light/Sleep")
     suspend fun getLightSleep(): DataLightSleep
 

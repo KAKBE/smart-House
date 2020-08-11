@@ -33,6 +33,12 @@ object WebClient {
         }
     }
 
+    suspend fun setDoorOpen() {
+        return withContext(Dispatchers.IO) {
+            api.setDoorOpen()
+        }
+    }
+
     suspend fun getLightSleep(): DataLightSleep {
         return withContext(Dispatchers.IO) {
             api.getLightSleep()

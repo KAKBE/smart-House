@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
@@ -42,6 +43,12 @@ fun getLight(){
             Log.d("Mainfragment", "${photo.photo}")
         }
     }
+    fun dooropen(){
+        lifecycleScope.launch {
+            WebClient.setDoorOpen( )
+            Toast.makeText(this@Mainfragment.context, "Открытие двери", Toast.LENGTH_SHORT).show()
 
+        }
+    }
 }
 
