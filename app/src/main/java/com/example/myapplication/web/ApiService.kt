@@ -49,6 +49,9 @@ interface ApiService {
     @GET("get/ElectricityConsumption/history")
     suspend fun getElectricityConsumptionHistory(): DataElectroHistory
 
+    @POST("set/token")
+    suspend fun setToken(token: TokenRequest)
+
 
 
 }

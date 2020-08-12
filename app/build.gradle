@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -27,6 +28,10 @@ android {
         sourceCompatibility = "8"
     }
 
+    kotlinOptions{
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -49,4 +54,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
     implementation 'com.jjoe64:graphview:4.2.2'
+    implementation 'com.google.firebase:firebase-analytics:17.4.4' // Добавить
+    implementation 'com.google.firebase:firebase-messaging:20.2.4' // Добавить
+    implementation 'io.coil-kt:coil:0.11.0' // Добавить
+
 }

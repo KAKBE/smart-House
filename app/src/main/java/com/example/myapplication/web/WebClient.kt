@@ -111,5 +111,11 @@ object WebClient {
         }
     }
 
+    suspend fun setToken(token:TokenRequest) {
+        return withContext(Dispatchers.IO) {
+            api.setToken(token)
+        }
+    }
+
 
 }
