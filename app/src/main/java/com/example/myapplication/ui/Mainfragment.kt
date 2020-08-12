@@ -25,6 +25,7 @@ class Mainfragment: Fragment() {
         val btn = v.findViewById<Button>(R.id.button9)
         val btn1 = v.findViewById<Button>(R.id.button12)
         val btnClimate = v.findViewById<Button>(R.id.button13)
+        val btnElectro = v.findViewById<Button>(R.id.button14)
         getLight()
         accessPhoto()
 
@@ -32,10 +33,13 @@ class Mainfragment: Fragment() {
             navigateToFragment(Lightfragment())
         }
         btn1.setOnClickListener{
-
+            navigateToFragment(Accessfragment())
         }
         btnClimate.setOnClickListener{
             navigateToFragment(ClimateControlfragment())
+        }
+        btnElectro.setOnClickListener{
+            navigateToFragment(EnergyDayfragment())
         }
         return v
     }
