@@ -31,13 +31,13 @@ class Accessfragment:Fragment() {
         }
 
         val btn5=  view.findViewById<Button>(R.id.button5)
-        btnNext.setOnClickListener{
+        btn5.setOnClickListener{
             navigateToFragment(AccessPhotofragment())
         }
 
         val btn4=  view.findViewById<Button>(R.id.button4)
-        btnNext.setOnClickListener{
-            navigateToFragment(AccessPhotofragment())
+        btn4.setOnClickListener{
+            navigateToFragment(AccessaСallfragment())
         }
 
         val btn = view.findViewById<Button>(R.id.button)
