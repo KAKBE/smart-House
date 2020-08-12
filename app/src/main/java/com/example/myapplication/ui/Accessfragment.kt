@@ -22,8 +22,24 @@ class Accessfragment:Fragment() {
         return inflater.inflate(R.layout.fragment_access, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val btnNext=  view.findViewById<Button>(R.id.next1)
+        btnNext.setOnClickListener{
+            navigateToFragment(AccessaСallfragment())
+        }
+
+        val btn5=  view.findViewById<Button>(R.id.button5)
+        btnNext.setOnClickListener{
+            navigateToFragment(AccessPhotofragment())
+        }
+
+        val btn4=  view.findViewById<Button>(R.id.button4)
+        btnNext.setOnClickListener{
+            navigateToFragment(AccessPhotofragment())
+        }
+
         val btn = view.findViewById<Button>(R.id.button)
         btn.setOnClickListener{
             doorOpen()
@@ -39,5 +55,8 @@ class Accessfragment:Fragment() {
                 Toast.makeText(this@Accessfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    fun navigateToFragment(fragment: Fragment){
+        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)?.addToBackStack(null)?.commit()
     }
 }
