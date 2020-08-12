@@ -1,18 +1,21 @@
 package com.example.myapplication.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.Switch
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
 import com.example.myapplication.data.DataClimateStation
 import com.example.myapplication.web.WebClient
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class ClimateControlfragment:Fragment() {
     override fun onCreateView(
@@ -54,5 +57,16 @@ class ClimateControlfragment:Fragment() {
     }
     fun navigateToFragment(fragment: Fragment){
         activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)?.addToBackStack(null)?.commit()
+    }
+
+    fun getClimateStation(){
+        lifecycleScope.launch{
+            try {
+                val ClimateStation = WebClient.getClimateStation()
+                Log.d("Mainfragment", ClimateStation.toString())
+            }catch(ex: HttpException){
+                Toast.makeText(this@ClimateControlfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

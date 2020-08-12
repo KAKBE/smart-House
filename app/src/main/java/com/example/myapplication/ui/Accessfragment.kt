@@ -27,7 +27,7 @@ class Accessfragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val btnNext=  view.findViewById<Button>(R.id.next1)
         btnNext.setOnClickListener{
-            navigateToFragment(AccessaСallfragment())
+            navigateToFragment(AccessСallfragment())
         }
 
         val btn5=  view.findViewById<Button>(R.id.button5)
@@ -37,7 +37,7 @@ class Accessfragment:Fragment() {
 
         val btn4=  view.findViewById<Button>(R.id.button4)
         btn4.setOnClickListener{
-            navigateToFragment(AccessaСallfragment())
+            navigateToFragment(AccessСallfragment())
         }
 
         val btn = view.findViewById<Button>(R.id.button)
@@ -59,4 +59,6 @@ class Accessfragment:Fragment() {
     fun navigateToFragment(fragment: Fragment){
         activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, fragment)?.addToBackStack(null)?.commit()
     }
+
+
 }

@@ -11,11 +11,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
-import com.example.myapplication.data.DataClimateComfort
-import com.example.myapplication.data.DataClimateStation
-import com.example.myapplication.data.DataLight
-import com.example.myapplication.data.DataLightSleep
+import com.example.myapplication.data.*
 import com.example.myapplication.web.WebClient
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -27,7 +25,7 @@ class Mainfragment: Fragment() {
         val btnClimate = v.findViewById<Button>(R.id.button13)
         val btnElectro = v.findViewById<Button>(R.id.button14)
         getLight()
-        accessPhoto()
+
 
         btn.setOnClickListener{
             navigateToFragment(Lightfragment())
@@ -41,6 +39,7 @@ class Mainfragment: Fragment() {
         btnElectro.setOnClickListener{
             navigateToFragment(EnergyDayfragment())
         }
+
         return v
     }
 
@@ -55,15 +54,7 @@ class Mainfragment: Fragment() {
             Log.d("Mainfragment","${light.state} ${light.level_max}"+" ${light.level_min}")
         }
     }
-    fun setLight(){
-        lifecycleScope.launch{
-            try {
-                WebClient.setLightLux(DataLight(true, 30, 80))
-            }catch(ex: HttpException){
-                Toast.makeText(this@Mainfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
+
 
     fun getLightSleep(){
         lifecycleScope.launch{
@@ -86,16 +77,7 @@ class Mainfragment: Fragment() {
         }
     }
 
-    fun getDoorHistory(){
-        lifecycleScope.launch{
-            try {
-                val DoorHistory = WebClient.getDoorHistory()
-                Log.d("Mainfragment", DoorHistory.toString())
-            }catch(ex: HttpException){
-                Toast.makeText(this@Mainfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
+
 
     fun getClimateStation(){
         lifecycleScope.launch{
@@ -165,8 +147,12 @@ class Mainfragment: Fragment() {
 
     fun accessPhoto(){
         lifecycleScope.launch {
-            val photo = WebClient.getAccessPhoto()
-            Log.d("Mainfragment", "${photo.photo}")
+            try {
+                val photo = WebClient.getAccessPhoto()
+                Log.d("Mainfragment", "${photo.photo}")
+            }catch (ex: HttpException){
+                Toast.makeText(this@Mainfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

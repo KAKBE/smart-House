@@ -14,7 +14,7 @@ interface ApiService {
     suspend fun setLightLux(@Body state: DataLight)
 
     @POST("set/door/open")
-    suspend fun setDoorOpen( )
+    suspend fun setDoorOpen()
 
     @GET("get/Light/Sleep")
     suspend fun getLightSleep(): DataLightSleep
@@ -50,7 +50,7 @@ interface ApiService {
     suspend fun getElectricityConsumptionHistory(): DataElectroHistory
 
     @POST("set/token")
-    suspend fun setToken(token: TokenRequest)
+    suspend fun setToken(@Body token: TokenRequest)
 
 
 
