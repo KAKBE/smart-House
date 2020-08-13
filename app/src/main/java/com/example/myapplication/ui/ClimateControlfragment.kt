@@ -28,7 +28,9 @@ class ClimateControlfragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val lightSwitch = view.findViewById<Switch>(R.id.switch1)
         val windowSwitch = view.findViewById<Switch>(R.id.switch2)
+
         windowSwitch.setOnCheckedChangeListener {
                 compoundButton: CompoundButton?, b: Boolean ->
             windowOpen(b)
@@ -38,6 +40,12 @@ class ClimateControlfragment:Fragment() {
                 compoundButton: CompoundButton?, b: Boolean ->
             pechkaAllow(b)
         }
+        val yvlaznitelSwitch = view.findViewById<Switch>(R.id.switch3)
+        yvlaznitelSwitch.setOnCheckedChangeListener(object: CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+                setClimateClimateStation(p1)
+            }
+        })
         val btnNext=  view.findViewById<Button>(R.id.next1)
         btnNext.setOnClickListener{
             navigateToFragment(ClimateHistoryfragment())
@@ -67,6 +75,11 @@ class ClimateControlfragment:Fragment() {
             }catch(ex: HttpException){
                 Toast.makeText(this@ClimateControlfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+    fun setClimateClimateStation(b: Boolean){
+        lifecycleScope.launch{
+            WebClient.setClimateClimateStation(DataClimateStation(false, false, true, "","","10:00"))
         }
     }
 }

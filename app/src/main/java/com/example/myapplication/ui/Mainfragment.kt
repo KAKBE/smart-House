@@ -26,7 +26,6 @@ class Mainfragment: Fragment() {
         val btnElectro = v.findViewById<Button>(R.id.button14)
         getLight()
 
-
         btn.setOnClickListener{
             navigateToFragment(Lightfragment())
         }

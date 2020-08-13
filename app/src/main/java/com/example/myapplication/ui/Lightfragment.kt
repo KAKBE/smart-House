@@ -26,20 +26,96 @@ class Lightfragment:Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_light, container, false)
     }
-
+    private var min = 0
+    private var max = 0
+    private var sleepmin = 0
+    private var sleepmax = 0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val lightSwitch = view.findViewById<Switch>(R.id.switch4)
         val seekBarMin = view.findViewById<SeekBar>(R.id.seekBar4)
         val seekBarMax = view.findViewById<SeekBar>(R.id.seekBar7)
+        val seekBarMinsleep = view.findViewById<SeekBar>(R.id.seekBar5)
+        val seekBarMaxsleep = view.findViewById<SeekBar>(R.id.seekBar8)
         lightSwitch.setOnCheckedChangeListener(){ compoundButton: CompoundButton, b: Boolean ->
             setLight(b)
         }
+        val switchLight = view.findViewById<Switch>(R.id.switch4)
+        switchLight.setOnCheckedChangeListener(object: CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+                setLight(p1)
+            }
+        })
+
+        val switchSleep = view.findViewById<Switch>(R.id.switch5)
+        switchSleep.setOnCheckedChangeListener(object: CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+                setLightSleep(p1)
+            }
+        })
+
+        seekBarMin.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                min = p1
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+
+            }
+        })
+        seekBarMax.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                max = p1
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+
+            }
+        })
+
+
+        seekBarMinsleep.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                sleepmin = p1
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+
+            }
+        })
+        seekBarMaxsleep.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                sleepmax = p1
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+
+            }
+        })
     }
+
+
+
     fun setLight(b: Boolean){
         lifecycleScope.launch{
             try {
-                WebClient.setLightLux(DataLight(b, 30, 80))
+                WebClient.setLightLux(DataLight(b, min, max))
             }catch(ex: HttpException){
                 Toast.makeText(this@Lightfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
             }
@@ -65,10 +141,10 @@ class Lightfragment:Fragment() {
         }
     }
 
-    fun setLightSleep(){
+    fun setLightSleep(b: Boolean){
         lifecycleScope.launch{
             try {
-                WebClient.setLightSleep(DataLightSleep(true,40,70,"22:00"))
+                WebClient.setLightSleep(DataLightSleep(b,sleepmin,sleepmax,"22:00"))
             }catch(ex: HttpException){
                 Toast.makeText(this@Lightfragment.context, "Ошибка ${ex.code()}", Toast.LENGTH_SHORT).show()
             }
