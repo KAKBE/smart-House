@@ -1,7 +1,7 @@
 package com.example.myapplication.data
 
 class DataElectroHistory(
-    val history: Array<ElectroHistoryItem>
+    val climate: List<ElectroHistoryItem>
 )
 
 class ElectroHistoryItem (

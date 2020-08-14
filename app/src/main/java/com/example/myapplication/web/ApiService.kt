@@ -20,28 +20,28 @@ interface ApiService {
     suspend fun getLightSleep(): DataLightSleep
 
     @POST("set/Light/Sleep")
-    suspend fun setLightSleep(state: DataLightSleep)
+    suspend fun setLightSleep(@Body state: DataLightSleep)
 
     @GET("get/Access/Photo/")
     suspend fun getAccessPhoto(): DataDoorPhoto
 
-    @GET("get/Door/History")
-    suspend fun getDoorHistory(): DataDoorHistory
+    @GET("get/door/history")
+    suspend fun getDoorHistory(): List<DoorHistoryItem>
 
     @GET("get/Climate/ClimateStation")
     suspend fun getClimateClimateStation(): DataClimateStation
 
-    @POST("set/Climate/ClimateStation")
-    suspend fun setClimateClimateStation(state: DataClimateStation)
+    @POST("set/Climate/ClimatStation")
+    suspend fun setClimateClimateStation(@Body state: DataClimateStation)
 
-    @GET("get/Climate/History")
-    suspend fun getClimateHistory(): DataClimateStation
+    @GET("get/Climate/history")
+    suspend fun getClimateHistory(): List<ClimateHistoryItem>
 
     @GET("get/Climate/Comfort")
     suspend fun getClimateComfort(): DataClimateStation
 
-    @POST("set/Climate/Comfort")
-    suspend fun setClimateComfort(state: DataClimateComfort)
+    @POST("set/Climate/comfort")
+    suspend fun setClimateComfort(@Body state: DataClimateComfort)
 
     @GET("get/Climate/Online")
     suspend fun getClimateOnline(): DataClimateOnline
@@ -51,6 +51,8 @@ interface ApiService {
 
     @POST("set/token")
     suspend fun setToken(@Body token: TokenRequest)
+
+
 
 
 

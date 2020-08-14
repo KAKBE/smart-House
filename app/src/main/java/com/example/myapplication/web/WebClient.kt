@@ -63,7 +63,7 @@ object WebClient {
         }
     }
 
-    suspend fun getDoorHistory(): DataDoorHistory {
+    suspend fun getDoorHistory(): List<DoorHistoryItem> {
         return withContext(Dispatchers.IO) {
             api.getDoorHistory()
         }
@@ -81,7 +81,7 @@ object WebClient {
         }
     }
 
-    suspend fun getClimateHistory(): DataClimateStation {
+    suspend fun getClimateHistory(): List<ClimateHistoryItem> {
         return withContext(Dispatchers.IO) {
             api.getClimateHistory()
         }
@@ -116,6 +116,8 @@ object WebClient {
             api.setToken(token)
         }
     }
+
+
 
 
 }

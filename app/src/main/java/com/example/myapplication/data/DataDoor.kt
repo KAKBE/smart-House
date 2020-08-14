@@ -9,7 +9,7 @@ class DataDoorPhoto (
 )
 
 class DataDoorHistory(
-    val history: Array<DoorHistoryItem>
+    val history: List<DoorHistoryItem>
 )
 
 class DoorHistoryItem (

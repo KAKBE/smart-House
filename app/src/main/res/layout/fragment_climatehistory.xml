@@ -15,4 +15,8 @@
             android:layout_weight="1"
             android:text="Далее" />
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCliamte"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
