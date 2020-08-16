@@ -1,14 +1,12 @@
 package com.example.myapplication.ui
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
-import android.widget.SeekBar
-import android.widget.Switch
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.R
@@ -30,6 +28,9 @@ class Lightfragment:Fragment() {
     private var max = 0
     private var sleepmin = 0
     private var sleepmax = 0
+    private var hour = 0
+    private var minute =  0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val lightSwitch = view.findViewById<Switch>(R.id.switch4)
@@ -37,6 +38,16 @@ class Lightfragment:Fragment() {
         val seekBarMax = view.findViewById<SeekBar>(R.id.seekBar7)
         val seekBarMinsleep = view.findViewById<SeekBar>(R.id.seekBar5)
         val seekBarMaxsleep = view.findViewById<SeekBar>(R.id.seekBar8)
+        val textView = view.findViewById<TextView>(R.id.textView)
+
+        textView.setOnClickListener{
+            val dialog = TimePickerDialog(requireContext(),
+                TimePickerDialog.OnTimeSetListener { p0, p1, p2 ->
+                    hour= p1
+                    minute = p2
+                },12, 0, true)
+            dialog.show()
+        }
         lightSwitch.setOnCheckedChangeListener(){ compoundButton: CompoundButton, b: Boolean ->
             setLight(b)
         }

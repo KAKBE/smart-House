@@ -28,7 +28,7 @@ interface ApiService {
     @GET("get/door/history")
     suspend fun getDoorHistory(): List<DoorHistoryItem>
 
-    @GET("get/Climate/ClimateStation")
+    @GET("get/Climate/ClimatStation")
     suspend fun getClimateClimateStation(): DataClimateStation
 
     @POST("set/Climate/ClimatStation")

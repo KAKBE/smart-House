@@ -8,7 +8,11 @@ class DataClimateStation (
     val time_okno : String,
     val time_yvlaznitel : String
 
-)
+){
+    override fun toString(): String {
+        return "DataClimateStation(pechka=$pechka, okno=$okno, yvlaznitel=$yvlaznitel, time_pechka='$time_pechka', time_okno='$time_okno', time_yvlaznitel='$time_yvlaznitel')"
+    }
+}
 
 class DataClimateComfort (
     val state: Boolean,
